@@ -9,6 +9,8 @@ var (
 	PostgreSQL = postgreSQL{}
 	// SQLite3 dialect
 	SQLite3 = sqlite3{}
+	// SQLServer dialect
+	SQLServer = mssql{}
 )
 
 const (
