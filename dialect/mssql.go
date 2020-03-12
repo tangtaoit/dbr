@@ -2,7 +2,6 @@ package dialect
 
 import (
 	"fmt"
-	"strings"
 	"time"
 )
 
@@ -13,37 +12,37 @@ func (d mssql) QuoteIdent(s string) string {
 }
 
 func (d mssql) EncodeString(s string) string {
-	var buf strings.Builder
+	// var buf strings.Builder
 
-	buf.WriteRune('\'')
-	// https://dev.mysql.com/doc/refman/5.7/en/string-literals.html
-	for i := 0; i < len(s); i++ {
-		switch s[i] {
-		case 0:
-			buf.WriteString(`\0`)
-		case '\'':
-			buf.WriteString(`\'`)
-		case '"':
-			buf.WriteString(`\"`)
-		case '\b':
-			buf.WriteString(`\b`)
-		case '\n':
-			buf.WriteString(`\n`)
-		case '\r':
-			buf.WriteString(`\r`)
-		case '\t':
-			buf.WriteString(`\t`)
-		case 26:
-			buf.WriteString(`\Z`)
-		case '\\':
-			buf.WriteString(`\\`)
-		default:
-			buf.WriteByte(s[i])
-		}
-	}
+	// buf.WriteRune('\'')
+	// // https://dev.mysql.com/doc/refman/5.7/en/string-literals.html
+	// for i := 0; i < len(s); i++ {
+	// 	switch s[i] {
+	// 	case 0:
+	// 		buf.WriteString(`\0`)
+	// 	case '\'':
+	// 		buf.WriteString(`\'`)
+	// 	case '"':
+	// 		buf.WriteString(`\"`)
+	// 	case '\b':
+	// 		buf.WriteString(`\b`)
+	// 	case '\n':
+	// 		buf.WriteString(`\n`)
+	// 	case '\r':
+	// 		buf.WriteString(`\r`)
+	// 	case '\t':
+	// 		buf.WriteString(`\t`)
+	// 	case 26:
+	// 		buf.WriteString(`\Z`)
+	// 	case '\\':
+	// 		buf.WriteString(`\\`)
+	// 	default:
+	// 		buf.WriteByte(s[i])
+	// 	}
+	// }
 
-	buf.WriteRune('\'')
-	return buf.String()
+	// buf.WriteRune('\'')
+	return s
 }
 
 func (d mssql) EncodeBool(b bool) string {
